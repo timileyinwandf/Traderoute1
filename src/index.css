@@ -158,3 +158,11 @@ All colors MUST be HSL.
     @apply bg-background text-foreground;
   }
 }
+
+/* Prevent iframe from having its own scrollbar when embedded in WordPress */
+html.iframe-embedded,
+html.iframe-embedded body {
+  overflow: hidden !important;
+  height: auto !important;
+  min-height: 0 !important;
+}

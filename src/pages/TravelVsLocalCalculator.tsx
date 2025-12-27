@@ -4,7 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Slider } from "@/components/ui/slider";
-
+import { useIframeHeight } from "@/hooks/useIframeHeight";
 
 import { useSearchParams, Link } from "react-router-dom";
 import { TrendingUp, TrendingDown, Home as HomeIcon, Plane } from "lucide-react";
@@ -29,6 +29,9 @@ const TravelVsLocalCalculator = () => {
   const [unPaidWeeks, setUnPaidWeeks] = useState([2]);
 
   const [results, setResults] = useState<any>(null);
+
+  // Send height updates to WordPress when embedded in iframe
+  useIframeHeight([results]);
 
   const calculateComparison = () => {
     if (!localRate || !travelRate) return;
